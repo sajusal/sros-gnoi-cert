@@ -3,7 +3,7 @@ This tutorial is on gRPC gNOI certificate management in SR OS.
 
 gNOI is a gRPC service for performing operations on the router. For more details, please visit [gNOI Openconfig page](https://github.com/openconfig/gnoi/tree/main).
 
-For more details on SR OS implementation of gRPC services, refer to [SR OS Documentation] (https://documentation.nokia.com/sr/24-3/7x50-shared/system-management/grpc.html)
+For more details on SR OS implementation of gRPC services, refer to [SR OS Documentation](https://documentation.nokia.com/sr/24-3/7x50-shared/system-management/grpc.html)
 
 ## Client
 We will be using [gnoic](https://gnoic.kmrd.dev/) as the client. Refer to the page for installation procedure.
@@ -23,7 +23,7 @@ version : 0.0.21
 
 This tutorial is based on SR OS release `24.3R2`.
 
-On the SR OS side, gRPC should be enabled along with gNOI Cert operation. On the user configuration, gRPC should be allosed and gNOI cert operations should also be permitted in the user profile.
+On the SR OS side, gRPC should be enabled along with gNOI Cert operation. On the user configuration, gRPC should be allowed and gNOI cert operations should also be permitted in the user profile.
 
 ```
     /configure system grpc admin-state enable
@@ -57,7 +57,7 @@ The RPC was executed successfully and no errors were returned. Currently, there 
 
 ## CanGenerateCSR
 
-Let's now test if SR OS can generate a Certificate Signing Request (CSR). If the router can generate the CSR, then it saves the effort of generating a CSR external to the router and transferring to the router after signing the certificate.
+Let's now test if SR OS can generate a Certificate Signing Request (CSR). If the router can generate the CSR, then it saves us the effort of generating a CSR external to the router and transferring to the router after signing the certificate.
 
 ```
 # gnoic -a clab-srexperts-p1 --insecure -u admin -p SReXperts2024 cert can-generate-csr
@@ -73,7 +73,7 @@ SR OS can generate the CSR.
 
 ## Certificate Authority (CA)
 
-For this tutorial, we using [Containerlab](https://containerlab.dev/cmd/tools/cert/ca/create/)) to generate the CA certificate and key.
+For this tutorial, we are using [Containerlab](https://containerlab.dev/cmd/tools/cert/ca/create/)) to generate the CA certificate and key.
 
 ```
 # containerlab tools cert ca create
