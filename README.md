@@ -380,3 +380,35 @@ gnmic -a 172.20.20.2 -u admin -p SReXperts2024 --tls-ca clab-sros-gnoi/certs/ca.
 }
 ```
 </details>
+
+While the streaming telemetry session is ongoing, we will renew our certificate using gNOI. Our original certificate was issued with a validity period of 10 years (see the certificate dump output from SR OS). When renewing the certificate, we will set a validity period of 1 hour.
+
+```
+gnoic -a 172.20.20.2 -u admin -p SReXperts2024 cert rotate --tls-ca clab-sros-gnoi/certs/ca.pem --ca-cert clab-sros-gnoi/certs/ca.pem --ca-key clab-sros-gnoi/certs/ca.key --ip-address 172.20.20.2 --common-name clab-sros-gnoi-srosA --id certalpha --validity 1h
+```
+
+Expected output:
+
+```
+INFO[0000] read local CA certs                          
+INFO[0000] "172.20.20.2:57400" signing certificate "CN=clab-sros-gnoi-srosA" with the provided CA 
+INFO[0000] "172.20.20.2:57400" rotating certificate id=certalpha "CN=clab-sros-gnoi-srosA" 
+INFO[0000] "172.20.20.2:57400" Rotate RPC successful  
+```
+
+Verify the renewed certificate from SR OS.
+
+```
+admin system security pki show file-content cf3:/system-pki/certalpha.crt type certificate format der
+```
+
+The certificate expiry time should now be set to 2 hours from the creation time.
+Note - gNOIc adds an extra hour as a grace period.
+
+**So what happened with our streaming telemetry session?**
+
+The telemetry session is still ongoing. This is because by default SR OS devices will perform TLS negotiation at the beginning of the session only. If the certificate changes or expires during the session, the session is not impacted.
+
+This default behavior can be changed using the `tls-re-negotiate-timer` under `configure system security tls server-tls-profile` context.
+
+
