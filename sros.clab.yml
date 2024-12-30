@@ -1,0 +1,9 @@
+name: sros-gnoi
+
+topology:
+  nodes:
+    srosA:
+      kind: nokia_sros
+      image: vr-sros:24.3.2
+      type: sr-1
+      license: license.txt
