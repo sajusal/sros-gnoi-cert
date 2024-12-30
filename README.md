@@ -21,7 +21,7 @@ version : 0.0.21
 
 ## SR OS Configuration
 
-This tutorial is based on SR OS release `24.3R2`.
+This tutorial is based on SR OS release `24.7R1`.
 
 On the SR OS side, gRPC should be enabled along with gNOI Cert operation. On the user configuration, gRPC should be allowed and gNOI cert operations should also be permitted in the user profile.
 
