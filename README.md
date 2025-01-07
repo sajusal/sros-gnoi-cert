@@ -5,6 +5,10 @@ gNOI is a gRPC service for performing operations on the router. For more details
 
 For more details on SR OS implementation of gRPC services, refer to [SR OS Documentation](https://documentation.nokia.com/sr/24-10/7x50-shared/system-management/grpc.html)
 
+## Lab Setup
+
+Linux(client) <----> Router(SROS)
+
 ## SR OS Node
 
 Use the [topology](sros.clab.yml) file to create a single SR OS node lab using [Containerlab](https://containerlab.dev/).
