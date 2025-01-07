@@ -1,9 +1,9 @@
 # SR OS gNOI certificate management
-This tutorial is on gRPC gNOI certificate management in SR OS.
+This tutorial is on gRPC gNOI certificate management in Nokia SR OS.
 
 gNOI is a gRPC service for performing operations on the router. For more details, please visit [gNOI Openconfig page](https://github.com/openconfig/gnoi/tree/main).
 
-For more details on SR OS implementation of gRPC services, refer to [SR OS Documentation](https://documentation.nokia.com/sr/24-3/7x50-shared/system-management/grpc.html)
+For more details on SR OS implementation of gRPC services, refer to [SR OS Documentation](https://documentation.nokia.com/sr/24-10/7x50-shared/system-management/grpc.html)
 
 ## SR OS Node
 
